@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>mg.telma.data</groupId>
+  <artifactId>dt-mkt-workflows-dcgxlsfiles</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <packaging>pom</packaging>
+
+  <modules>
+    <module>dt-monthly-dcgxlsfiles</module>
+  </modules>
+
+  <name>dp-platform-apps</name>
+  <url>https://telma.net/dt-data-products/dp-platform-apps</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
+    <avro-maven-plugin.version>1.10.2</avro-maven-plugin.version>
+    <appassembler-maven-plugin.version>2.1.0</appassembler-maven-plugin.version>
+    <avro.version>1.10.2</avro.version>
+    <io.confluent.version>6.1.1</io.confluent.version>
+    <javax.validation.version>2.0.1.Final</javax.validation.version>
+    <junit-bom.version>5.7.2</junit-bom.version>
+    <lombok.version>1.18.20</lombok.version>
+    <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+    <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
+    <org.apache.kafka.version>2.8.0</org.apache.kafka.version>
+    <org.everit.json>1.5.1</org.everit.json>
+    <org.quickfixj.version>2.2.0</org.quickfixj.version>
+    <spring-boot.version>2.4.5</spring-boot.version>
+    <spring-kafka.version>2.7.0</spring-kafka.version>
+    <springdoc.version>1.5.8</springdoc.version>
+    <typesafe.version>1.4.1</typesafe.version>
+    <vertx.version>4.0.3</vertx.version>
+    <elastic-apm.version>1.24.0</elastic-apm.version>
+    <guava.version>31.0.1-jre</guava.version>
+  </properties>
+
+  <repositories>
+    <repository>
+      <id>localm2</id>
+      <name>localm2</name>
+      <releases>
+        <enabled>true</enabled>
+        <checksumPolicy>ignore</checksumPolicy>
+      </releases>
+      <url>${project.basedir}/../.m2/settings.xml</url>
+    </repository>
+  </repositories>
+
+  <dependencyManagement>
+    <dependencies>
+      <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+      <dependency>
+        <artifactId>lombok</artifactId>
+        <groupId>org.projectlombok</groupId>
+        <version>${lombok.version}</version>
+      </dependency>
+
+      <!-- https://mvnrepository.com/artifact/org.apache.avro/avro -->
+      <dependency>
+        <artifactId>avro</artifactId>
+        <groupId>org.apache.avro</groupId>
+        <version>${avro.version}</version>
+      </dependency>
+
+      <!-- https://mvnrepository.com/artifact/io.confluent/kafka-avro-serializer -->
+      <dependency>
+        <artifactId>kafka-avro-serializer</artifactId>
+        <groupId>io.confluent</groupId>
+        <version>${io.confluent.version}</version>
+      </dependency>
+
+      <!-- https://mvnrepository.com/artifact/org.springframework.kafka/spring-kafka -->
+      <dependency>
+        <artifactId>spring-kafka</artifactId>
+        <groupId>org.springframework.kafka</groupId>
+        <version>${spring-kafka.version}</version>
+      </dependency>
+
+      <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies -->
+      <dependency>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <groupId>org.springframework.boot</groupId>
+        <scope>import</scope>
+        <type>pom</type>
+        <version>${spring-boot.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+        <version>${spring-boot.version}</version>
+      </dependency>
+
+      <dependency>
+        <artifactId>springdoc-openapi-ui</artifactId>
+        <groupId>org.springdoc</groupId>
+        <version>${springdoc.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.typesafe</groupId>
+        <artifactId>config</artifactId>
+        <version>${typesafe.version}</version>
+      </dependency>
+
+      <!-- https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients -->
+      <dependency>
+        <artifactId>kafka-clients</artifactId>
+        <groupId>org.apache.kafka</groupId>
+        <version>${org.apache.kafka.version}</version>
+      </dependency>
+
+      <!-- https://mvnrepository.com/artifact/org.apache.kafka/kafka-streams -->
+      <dependency>
+        <artifactId>kafka-streams</artifactId>
+        <groupId>org.apache.kafka</groupId>
+        <version>${org.apache.kafka.version}</version>
+      </dependency>
+
+      <!-- https://mvnrepository.com/artifact/io.confluent/kafka-streams-avro-serde -->
+      <dependency>
+        <artifactId>kafka-streams-avro-serde</artifactId>
+        <groupId>io.confluent</groupId>
+        <version>${io.confluent.version}</version>
+      </dependency>
+
+      <dependency>
+        <artifactId>quickfixj-messages-fix44</artifactId>
+        <groupId>org.quickfixj</groupId>
+        <version>${org.quickfixj.version}</version>
+      </dependency>
+
+      <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-validation -->
+      <dependency>
+        <artifactId>spring-boot-starter-validation</artifactId>
+        <groupId>org.springframework.boot</groupId>
+        <version>${spring-boot.version}</version>
+      </dependency>
+
+      <!-- https://mvnrepository.com/artifact/org.everit.json/org.everit.json.schema -->
+      <dependency>
+        <artifactId>org.everit.json.schema</artifactId>
+        <groupId>org.everit.json</groupId>
+        <version>${org.everit.json}</version>
+      </dependency>
+
+      <!-- Test Dependencies -->
+      <!-- https://mvnrepository.com/artifact/org.junit/junit-bom -->
+      <dependency>
+        <artifactId>junit-bom</artifactId>
+        <groupId>org.junit</groupId>
+        <scope>import</scope>
+        <type>pom</type>
+        <version>${junit-bom.version}</version>
+      </dependency>
+
+      <!-- https://mvnrepository.com/artifact/org.springframework.kafka/spring-kafka-test -->
+      <dependency>
+        <artifactId>spring-kafka-test</artifactId>
+        <groupId>org.springframework.kafka</groupId>
+        <scope>test</scope>
+        <version>${spring-kafka.version}</version>
+      </dependency>
+
+      <!--  https://mvnrepository.com/artifact/org.apache.kafka/kafka-streams-test-utils -->
+      <dependency>
+        <artifactId>kafka-streams-test-utils</artifactId>
+        <groupId>org.apache.kafka</groupId>
+        <scope>test</scope>
+        <version>${org.apache.kafka.version}</version>
+      </dependency>
+
+      <!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
+      <dependency>
+        <artifactId>validation-api</artifactId>
+        <groupId>javax.validation</groupId>
+        <version>${javax.validation.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>${guava.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <dependencies>
+    <dependency>
+      <artifactId>lombok</artifactId>
+      <groupId>org.projectlombok</groupId>
+    </dependency>
+
+    <!-- Test Dependencies -->
+    <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
+    <dependency>
+      <artifactId>junit-jupiter</artifactId>
+      <groupId>org.junit.jupiter</groupId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+    </dependency>
+  </dependencies>
+
+
+  <build>
+
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>${maven.compiler.source}</source>
+          <target>${maven.compiler.target}</target>
+        </configuration>
+        <groupId>org.apache.maven.plugins</groupId>
+        <version>${maven-compiler-plugin.version}</version>
+      </plugin>
+
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${maven-surefire-plugin.version}</version>
+        <configuration>
+          <includes>
+            <include>**/*Test.java</include>
+            <include>**/*UT.java</include>
+            <include>**/*IT.java</include>
+          </includes>
+        </configuration>
+      </plugin>
+
+    </plugins>
+  </build>
+</project>
