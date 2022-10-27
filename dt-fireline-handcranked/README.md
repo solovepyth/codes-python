@@ -1,4 +1,4 @@
-# dt-telmashop-mfs
+# dt-fireline-handcranked
 
 This project delivers Mobile Financial Services (MFS) kpis in branded network
 
@@ -91,10 +91,3 @@ For open source projects, say how it is licensed.
 ## Project status
 If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
 
-# 1)	Analyse_PDV_monthly. Dans BO :  TELMA+DCG+BI+SAVE Analyse_PDV_monthly. A rafraichir onglet 1 et 2 +Enregistrer le fichier+Exporter en type de fichier Excel
-
-# 2)	PM_et_PDV_data. Dans BO : TELMA+DCG+GEOMARKET+CARTOGRAPHIE+cartographie PM et PDV_data. A rafraichir onglet 1 et 2+Enregistrer le fichier+Exporter en type de fichier Excel
-
-# 3)	Rapport_gratte_par_région. Dans BO : TELMA+DCG+BI+SAVE. Conception + dupliquer un rapport+A rafraichir onglet 1 et 2+date A ajouter +Enregistrer le fichier+Exporter en type de fichier Excel
-
-# 4)	Rapport_gratte_par_région recap. Dans BO :TELMA+DCG+BI+SAVE. A rafraichir onglet 1 et 2+date A ajouter +Enregistrer le fichier+Exporter en type de fichier Excel
